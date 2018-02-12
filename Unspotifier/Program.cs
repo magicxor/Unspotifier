@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Unspotifier.Core.Constants;
 using Unspotifier.DependencyInjection;
 using Unspotifier.Models;
 using Unspotifier.Services;
@@ -18,9 +19,9 @@ namespace Unspotifier
             {
                 var configurationBuilder = new ConfigurationBuilder()
                     .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json");
+                    .AddJsonFile(Defaults.ConfigurationFileName);
                 var configurationRoot = configurationBuilder.Build();
-                var applicationSettings = configurationRoot.GetSection("UnspotifierConfiguration").Get<ApplicationSettings>();
+                var applicationSettings = configurationRoot.GetSection(Defaults.ConfigurationSectionName).Get<ApplicationSettings>();
 
                 var serviceCollection = new ServiceCollection();
                 ContainerConfiguration.ConfigureServices(serviceCollection, applicationSettings);
