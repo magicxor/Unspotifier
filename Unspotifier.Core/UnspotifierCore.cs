@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -16,8 +17,9 @@ namespace Unspotifier.Core
         {
             try
             {
+                var currentDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
                 var configurationBuilder = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .SetBasePath(currentDirectory)
                     .AddJsonFile(Defaults.ConfigurationFileName);
                 var configurationRoot = configurationBuilder.Build();
                 var applicationSettings = configurationRoot.GetSection(Defaults.ConfigurationSectionName).Get<ApplicationSettings>();
