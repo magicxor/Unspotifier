@@ -1,4 +1,4 @@
-﻿namespace Unspotifier.Models
+﻿namespace Unspotifier.Core.Models
 {
     public class ApplicationSettings
     {

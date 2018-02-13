@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Unspotifier.Enums;
-using Unspotifier.Models;
+using Unspotifier.Core.Enums;
+using Unspotifier.Core.Models;
 
-namespace Unspotifier.Services
+namespace Unspotifier.Core.Services
 {
     public class SpotifyUriParser
     {

@@ -1,4 +1,4 @@
-﻿namespace Unspotifier.Enums
+﻿namespace Unspotifier.Core.Enums
 {
     public enum SpotifyUriTypes
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Unspotifier.Models
+namespace Unspotifier.Core.Models
 {
     public class TelegraphNodeElement
     {

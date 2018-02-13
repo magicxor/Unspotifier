@@ -1,19 +1,18 @@
 ﻿using System;
 using System.IO;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Unspotifier.Core.Constants;
-using Unspotifier.DependencyInjection;
-using Unspotifier.Models;
-using Unspotifier.Services;
+using Unspotifier.Core.DependencyInjection;
+using Unspotifier.Core.Models;
+using Unspotifier.Core.Services;
 
-namespace Unspotifier
+namespace Unspotifier.Core
 {
-    internal class Program
+    public static class UnspotifierCore
     {
-        private static void Main(string[] args)
+        public static void Run()
         {
             try
             {
@@ -30,9 +29,11 @@ namespace Unspotifier
                 var botService = serviceProvider.GetService<TelegramBotService>();
                 var logger = serviceProvider.GetService<ILogger>();
 
-                logger.LogInformation("Running...");
+                botService.Start();
+                logger.LogInformation($"{nameof(UnspotifierCore)} started");
                 Console.ReadLine();
-                logger.LogInformation("Shutdown...");
+                botService.Stop();
+                logger.LogInformation($"{nameof(UnspotifierCore)} stopped");
             }
             catch (Exception e)
             {

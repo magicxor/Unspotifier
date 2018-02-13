@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using FluentSpotifyApi;
 using FluentSpotifyApi.Model;
-using Unspotifier.Enums;
+using Unspotifier.Core.Enums;
 
-namespace Unspotifier.Services
+namespace Unspotifier.Core.Services
 {
     public class UnspotifyService
     {

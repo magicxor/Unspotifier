@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using FluentSpotifyApi.Model;
-using Unspotifier.Models;
+using Unspotifier.Core.Models;
 
-namespace Unspotifier.Services
+namespace Unspotifier.Core.Services
 {
     public class TelegraphPublisher
     {

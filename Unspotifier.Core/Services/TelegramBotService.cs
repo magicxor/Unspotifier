@@ -4,9 +4,9 @@ using Microsoft.Extensions.Logging;
 using Telegram.Bot;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types.Enums;
-using Unspotifier.Models;
+using Unspotifier.Core.Models;
 
-namespace Unspotifier.Services
+namespace Unspotifier.Core.Services
 {
     public class TelegramBotService
     {
@@ -23,7 +23,16 @@ namespace Unspotifier.Services
             _unspotifyService = unspotifyService;
 
             _telegramBotClient.OnMessage += TelegramBotClientOnOnMessage;
+        }
+
+        public void Start()
+        {
             _telegramBotClient.StartReceiving();
+        }
+
+        public void Stop()
+        {
+            _telegramBotClient.StopReceiving();
         }
 
         private async void TelegramBotClientOnOnMessage(object sender, MessageEventArgs messageEventArgs)
@@ -55,11 +64,6 @@ namespace Unspotifier.Services
             {
                 _logger.LogError(e, $@"Error during {nameof(TelegramBotClientOnOnMessage)}");
             }
-        }
-
-        ~TelegramBotService()
-        {
-            _telegramBotClient.StopReceiving();
         }
     }
 }

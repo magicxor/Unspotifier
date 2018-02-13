@@ -7,10 +7,10 @@ using FluentSpotifyApi.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Telegram.Bot;
-using Unspotifier.Models;
-using Unspotifier.Services;
+using Unspotifier.Core.Models;
+using Unspotifier.Core.Services;
 
-namespace Unspotifier.DependencyInjection
+namespace Unspotifier.Core.DependencyInjection
 {
     public static class ContainerConfiguration
     {
